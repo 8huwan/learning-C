@@ -1,0 +1,3 @@
+
+child obj;
+obj.display();
