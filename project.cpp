@@ -59,7 +59,6 @@ void shopping ::menu()
         else
         {
             cout << "Invalid email/password";
-            menu();
         }
         break;
 
@@ -82,7 +81,7 @@ void shopping ::menu()
 void shopping::administrator()
 {
 
-    // int add();
+    
     int choice;
     cout << "\n\n\n\t\t\t administrator menu";
     cout << "\n\t\t\t|_________1) Add the product_______________|";
@@ -375,19 +374,21 @@ void shopping ::receipt()
           
             for (int i = 0; i < c; i++)
             {
+
                 data.open("database.txt", ios::in);
                 data >> pcode >> pname >> price >> dis;
                 int a=1;
-                while (!data.eof())
+                while (a--)
                 {
                     
+                   
                     amount = price * arrq[i];
                     dis = amount - (amount * dis / 100.0);
                     total = total + dis;
-                    cout << "\n"
-                         << pcode << "\t\t" <<"  "<< pname << "\t\t" << "    "<<arrq[i] << "\t\t" <<"      "<<price << "\t\t" <<amount << "\t\t" << dis;
+                    cout << "\n" << pcode << "\t\t" <<"  "<< pname << "\t\t" << "    "<<arrq[i] << "\t\t" <<"      "<<price << "\t\t" <<amount << "\t\t" << dis;
                     
-                data >> pcode >> pname >> price >> dis;
+                 data >> pcode >> pname >> price >> dis;
+
                 }
                
             }
@@ -399,4 +400,5 @@ void shopping ::receipt()
     {
         shopping s;
         s.menu();           
+        
     }
